@@ -18,7 +18,7 @@ class User(BaseModel):
 
 
 class Address(BaseModel):
-    user_type_choices = (
+    creator_choices = (
         (simple_user := "user", "user"),
         (admin := "admin", "admin"),
     )
@@ -27,4 +27,4 @@ class Address(BaseModel):
     title = models.CharField("Title", max_length=150)
     latitude = models.DecimalField(max_digits=8, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
-    user_type = models.CharField(max_length=5, choices=user_type_choices, default=simple_user)
+    creator = models.CharField(max_length=5, choices=creator_choices, default=simple_user)
