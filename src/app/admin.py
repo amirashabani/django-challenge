@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import BaseModel
+from .models import User, Address
 
-admin.site.register(BaseModel)
+admin.site.register(User)
+admin.site.register(Address)
