@@ -3,3 +3,6 @@
 
 # Environment variables file
 .env
+
+# SQLite database
+*.sqlite3
