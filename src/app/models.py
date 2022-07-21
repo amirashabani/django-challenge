@@ -17,6 +17,10 @@ class User(BaseModel):
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
 
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+
 class Address(BaseModel):
     creator_choices = (
         (simple_user := "user", "user"),
@@ -28,3 +32,6 @@ class Address(BaseModel):
     latitude = models.DecimalField(max_digits=8, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     creator = models.CharField(max_length=5, choices=creator_choices, default=simple_user)
+
+    def __str__(self):
+        return f"{self.latitude},{self.longitude} for {self.user}"
