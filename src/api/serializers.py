@@ -4,9 +4,16 @@ from app.models import User, Address
 
 class UserSerializer(serializers.ModelSerializer):
     address_count = serializers.UUIDField(required=False)
+    recent_addresses = serializers.ListField(required=False)
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "address_count")
+        fields = ("first_name", "last_name", "address_count", "recent_addresses")
+
+
+class RecentAddressesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ("title", "latitude", "longitude", "created")
 
 
 class AddressSerializer(serializers.ModelSerializer):
