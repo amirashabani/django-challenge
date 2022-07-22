@@ -32,9 +32,8 @@ def get_user(request):
     if admin:
         users = (
             User.objects
-            .filter(address__isnull=False)
             .values("uid", "first_name", "last_name")
-            .annotate(address_count=Count("uid"))
+            .annotate(address_count=Count("address"))
         )
 
         if addr:
