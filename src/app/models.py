@@ -35,4 +35,4 @@ class Address(BaseModel):
     creator = models.CharField(max_length=5, choices=creator_choices, default=simple_user)
 
     def __str__(self):
-        return f"{self.latitude},{self.longitude} for {self.user}"
+        return f"{self.latitude},{self.longitude} for {self.user} by {self.creator}"
