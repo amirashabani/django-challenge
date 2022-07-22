@@ -7,4 +7,5 @@ class AppConfig(AppConfig):
 
     def ready(self):
         import app.signals.handlers
+        import app.custom_lookups
         return super().ready()
