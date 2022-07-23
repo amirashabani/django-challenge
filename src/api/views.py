@@ -6,13 +6,13 @@ from django.db.models import Count
 
 
 @api_view(["GET"])
-def get_user(request):
+def get_users(request):
     # is the request from admin?
-    # /api/get_user?admin=true
+    # /api/get_users?admin=true
     admin = request.query_params.get("admin", "false").lower() == "true"
 
     # filter based on number of addresses
-    # /api/get_user?admin=true&addr=gt_5
+    # /api/get_users?admin=true&addr=gt_5
     if addr := request.query_params.get("addr"):
         parts = addr.split("_")
         if len(parts) == 2:

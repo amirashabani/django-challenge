@@ -50,32 +50,32 @@ python manage.py runserver
 Get a list of users:
 
 ```url
-/api/get_user
+/api/get_users
 ```
 
 Get a list of users, for the admin:
 
 ```url
-/api/get_user?admin=true
+/api/get_users?admin=true
 ```
 
 Get a list of users and filter based on number of addresses:
 
 ```url
 # greater than five
-/api/get_user?admin=true&addr=gt_5
+/api/get_users?admin=true&addr=gt_5
 
 # greater than or equal to three
-/api/get_user?admin=true&addr=gte_3
+/api/get_users?admin=true&addr=gte_3
 
 # less than ten
-/api/get_user?admin=true&addr=lt_10
+/api/get_users?admin=true&addr=lt_10
 
 # equal to two
-/api/get_user?admin=true&addr=eq_2
+/api/get_users?admin=true&addr=eq_2
 
 # not equal to six
-/api/get_user?admin=true&addr=ne_6
+/api/get_users?admin=true&addr=ne_6
 ```
 
 ### Add address
