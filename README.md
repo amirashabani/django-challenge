@@ -1,6 +1,37 @@
 # Django-Challenge
 
-To run the program, first make sure you have Python 3.8+ installed on your machine:
+## Run via Docker
+
+First, `export` three variables:
+
+```bash
+export SECRET_KEY="your secret key"
+export DEBUG=True
+export ALLOWED_HOSTS=localhost 127.0.0.1
+```
+
+Then, run the container in detached mode:
+
+```bash
+docker run -d -p 8080:8000 --name django_app \
+-e SECRET_KEY -e DEBUG -e ALLOWED_HOSTS \
+amirashabani/django_challenge
+```
+
+Then, open a shell and create a superuser for the admin:
+
+```bash
+docker exec -it django_app sh
+$ python manage.py createsuperuser
+$ exit
+```
+
+Now you have access to http://127.0.0.1:8080/admin and endpoints detailed at the end of this README.
+
+
+## Alternatively, to run the program without docker
+
+First make sure you have Python 3.8+ installed on your machine:
 
 ```bash
 python --version
