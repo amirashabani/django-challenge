@@ -1,10 +1,10 @@
 # Django-Challenge
 
-To run the program, first make sure you have Python 3.10+ installed on your machine:
+To run the program, first make sure you have Python 3.8+ installed on your machine:
 
 ```bash
 python --version
-3.10.4
+3.8.13
 ```
 
 Then, create a virtual environment and install the necessary requirements:
