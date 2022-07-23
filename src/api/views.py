@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import UserSerializer, AddressSerializer, RecentAddressesSerializer
-from . import database
+from app import database
 
 
 @api_view(["GET"])
