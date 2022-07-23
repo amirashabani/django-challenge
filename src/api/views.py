@@ -1,8 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import UserSerializer, AddressSerializer, RecentAddressesSerializer
-from app.models import User, Address
-from . import utils
+from . import database
 
 
 @api_view(["GET"])
@@ -30,21 +29,18 @@ def get_users(request):
             addr = None
 
     if admin:
-        users = utils.users_with_address_count()
+        users = database.users_with_address_count()
 
         if addr:
             users = users.filter(**address_filter)
 
         for user in users:
-            recent_addresses = (
-                Address.objects
-                .filter(user=user["uid"])
-                .order_by("-created")
-            )[:3]
-
-            user["recent_addresses"] = RecentAddressesSerializer(recent_addresses, many=True).data
+            user["recent_addresses"] = RecentAddressesSerializer(
+                database.most_recent_addresses(user, 3),
+                many=True
+            ).data
     else:
-        users = User.objects.all()
+        users = database.all_users()
 
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
