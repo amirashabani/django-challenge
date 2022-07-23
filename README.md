@@ -85,3 +85,16 @@ Add address for a specific user:
 ```url
 /api/add_address
 ```
+
+Example POST request to add an address:
+
+```json
+{
+    "user": "uid",
+    "title": "a new title",
+    "latitude": 12.965843,
+    "longitude": -120.546238
+}
+```
+
+You can find the UIDs of users in the /admin page.
