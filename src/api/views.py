@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import UserSerializer, AddressSerializer, RecentAddressesSerializer
 from app.models import User, Address
-from django.db.models import Count
+from . import utils
 
 
 @api_view(["GET"])
@@ -30,11 +30,7 @@ def get_users(request):
             addr = None
 
     if admin:
-        users = (
-            User.objects
-            .values("uid", "first_name", "last_name")
-            .annotate(address_count=Count("address"))
-        )
+        users = utils.users_with_address_count()
 
         if addr:
             users = users.filter(**address_filter)
