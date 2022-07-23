@@ -7,7 +7,7 @@ First, `export` three variables:
 ```bash
 export SECRET_KEY="your secret key"
 export DEBUG=True
-export ALLOWED_HOSTS=localhost 127.0.0.1
+export ALLOWED_HOSTS="localhost 127.0.0.1"
 ```
 
 Then, run the container in detached mode:
