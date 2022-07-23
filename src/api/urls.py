@@ -1,10 +1,8 @@
-from getpass import getuser
-from site import getusersitepackages
 from django.urls import path
-from .views import get_users, add_address
+from .views import UsersAPI, AddressAPI
 
 
 urlpatterns = [
-    path("get_users", get_users),
-    path("add_address", add_address),
+    path("get_users", UsersAPI.as_view()),
+    path("add_address", AddressAPI.as_view()),
 ]
