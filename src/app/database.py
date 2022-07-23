@@ -2,6 +2,13 @@ from app.models import User, Address
 from django.db.models import Count
 
 
+def addresses_set_by_admin():
+    return (
+        Address.objects
+        .filter(creator=Address.admin)
+    )
+
+
 def users_with_address_count():
     return (
         User.objects
